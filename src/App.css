@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: "RedHatText";
+    font-display: swap;
+    src: url("./assets/fonts/RedHatText-VariableFont_wght.ttf");
+  }
+  html {
+    font-family: "RedHatText", system-ui, sans-serif;
+  }
+}
