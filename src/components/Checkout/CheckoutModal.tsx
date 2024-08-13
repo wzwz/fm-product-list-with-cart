@@ -30,25 +30,25 @@ export default function CheckoutModal() {
           alt="Order Confirmed"
         />
         <h1 className="mt-6 text-2xl font-bold">Order Confirmed</h1>
-        <div className="mt-2 text-[#87635A]">We hope you enjoy your food!</div>
-        <div className="mt-8 p-6 bg-[#FCF8F6]">
+        <div className="mt-2 text-rose-500">We hope you enjoy your food!</div>
+        <div className="mt-8 p-6 bg-rose-50">
           {cartCtx.items.map((cartItem) => (
             <div
               key={cartItem.name}
-              className="flex justify-between items-center border-b border-[#F5EEEC] py-4 first:pt-0"
+              className="flex justify-between items-center border-b border-rose-100 py-4 first:pt-0"
             >
               <img
                 src={cartItem.image.thumbnail}
                 alt={cartItem.name}
-                className="w-12 rounded-md"
+                className="w-12 rounded-[0.25rem]"
               />
               <div className="grow mx-4 text-sm">
                 <div className="font-semibold">{cartItem.name}</div>
                 <div className="mt-2">
-                  <span className="text-[#C73B0F] font-semibold">
+                  <span className="text-red-700 font-semibold">
                     {cartItem.quantity}x
                   </span>
-                  <span className="text-[#87635A] ml-3">
+                  <span className="text-rose-500 ml-3">
                     @ {currencyFormatter.format(cartItem.price)}
                   </span>
                 </div>
@@ -67,7 +67,7 @@ export default function CheckoutModal() {
         </div>
 
         <button
-          className="mt-6 w-full flex p-4 bg-[#C73B0F] rounded-full text-white font-semibold justify-center hover:bg-[#702108]"
+          className="mt-6 w-full flex p-4 bg-red-700 rounded-full text-white font-semibold justify-center hover:bg-red-900"
           onClick={handleCloseCheckout}
         >
           Start New Order

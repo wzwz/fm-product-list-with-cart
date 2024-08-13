@@ -25,7 +25,7 @@ export default function Product({ product }: { product: ProductType }) {
           className="rounded-lg w-max"
         />
         {cartItemCount(product) ? (
-          <div className="flex w-40 justify-between p-3 bg-[#C73B0F] rounded-full mt-[-1.375rem]">
+          <div className="flex w-40 justify-between p-3 bg-red-700 rounded-full mt-[-1.375rem]">
             <button
               className="group flex justify-center items-center size-[1.125rem] rounded-full border border-white hover:bg-white"
               onClick={() => cartCtx.removeItem(product.name)}
@@ -38,7 +38,7 @@ export default function Product({ product }: { product: ProductType }) {
                 viewBox="0 0 10 2"
               >
                 <path
-                  className="group-hover:fill-[#C73B0F]"
+                  className="group-hover:fill-red-700"
                   fill="#fff"
                   d="M0 .375h10v1.25H0V.375Z"
                 />
@@ -57,7 +57,7 @@ export default function Product({ product }: { product: ProductType }) {
                 viewBox="0 0 10 10"
               >
                 <path
-                  className="group-hover:fill-[#C73B0F]"
+                  className="group-hover:fill-red-700"
                   fill="#fff"
                   d="M10 4.375H5.625V0h-1.25v4.375H0v1.25h4.375V10h1.25V5.625H10v-1.25Z"
                 />
@@ -66,7 +66,7 @@ export default function Product({ product }: { product: ProductType }) {
           </div>
         ) : (
           <button
-            className="flex w-40 justify-center p-3 bg-white border border-[#AD8A85] rounded-full mt-[-1.375rem] hover:text-[#C73B0F] hover:border-[#C73B0F]"
+            className="flex w-40 justify-center p-3 bg-white border border-rose-400 rounded-full mt-[-1.375rem] hover:text-red-700 hover:border-red-700"
             onClick={() => handleAddToCart(product)}
           >
             <img
@@ -79,9 +79,9 @@ export default function Product({ product }: { product: ProductType }) {
         )}
       </div>
       <div className="mt-4">
-        <div className="text-sm text-[#87635A]">{product.category}</div>
+        <div className="text-sm text-rose-500">{product.category}</div>
         <div className="font-semibold mt-1">{product.name}</div>
-        <div className="text-[#C73B0F] font-semibold mt-1">
+        <div className="text-red-700 font-semibold mt-1">
           {currencyFormatter.format(product.price)}
         </div>
       </div>

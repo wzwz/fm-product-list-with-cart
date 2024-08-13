@@ -9,7 +9,7 @@ function App() {
   return (
     <UserProgressContextProvider>
       <CartContextProvider>
-        <div className="bg-[#FCF8F6] min-h-screen leading-tight">
+        <div className="bg-rose-50 min-h-screen leading-tight">
           <div className="grid grid-cols-3 gap-8 max-w-[1440px] mx-auto p-28">
             <div className="col-span-2">
               <ProductsSection />

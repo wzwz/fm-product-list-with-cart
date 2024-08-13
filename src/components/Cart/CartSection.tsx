@@ -2,6 +2,7 @@ import { useContext } from "react";
 import CartContext from "../../store/CartContext";
 import { currencyFormatter } from "../../utils/formatting";
 import UserProgressContext from "../../store/UserProgressContext";
+import CartItem from "./CartItem";
 
 export default function CartSection() {
   const userProgressCtx = useContext(UserProgressContext);
@@ -20,7 +21,7 @@ export default function CartSection() {
   return (
     <>
       <div className="p-6 rounded-xl bg-white">
-        <h2 className="text-xl font-bold text-[#C73B0F]">
+        <h2 className="text-xl font-bold text-red-700">
           Your Cart ({totalCartItems})
         </h2>
         {cartCtx.items.length === 0 ? (
@@ -29,7 +30,7 @@ export default function CartSection() {
               src="/assets/images/illustration-empty-cart.svg"
               alt="Your cart is empty!"
             />
-            <p className="mt-4 text-sm text-[#87635A]">
+            <p className="mt-4 text-sm text-rose-500">
               Your added items will appear
             </p>
           </div>
@@ -37,45 +38,7 @@ export default function CartSection() {
           <>
             <div className="mt-6">
               {cartCtx.items.map((cartItem) => (
-                <div
-                  key={cartItem.name}
-                  className="flex justify-between items-center border-b border-[#F5EEEC] py-4 first:pt-0"
-                >
-                  <div className="text-sm">
-                    <div className="font-semibold">{cartItem.name}</div>
-                    <div className="mt-2">
-                      <span className="text-[#C73B0F] font-semibold">
-                        {cartItem.quantity}x
-                      </span>
-                      <span className="text-[#87635A] ml-3">
-                        @ {currencyFormatter.format(cartItem.price)}
-                      </span>
-                      <span className="text-[#87635A] font-semibold ml-3">
-                        {currencyFormatter.format(
-                          cartItem.quantity * cartItem.price
-                        )}
-                      </span>
-                    </div>
-                  </div>
-                  <button
-                    className="group flex justify-center items-center size-[1.125rem] rounded-full border border-[#AD8A85] hover:border-[#260F08]"
-                    onClick={() => cartCtx.removeItem(cartItem.name)}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="10"
-                      height="10"
-                      fill="none"
-                      viewBox="0 0 10 10"
-                    >
-                      <path
-                        className="group-hover:fill-[#260F08]"
-                        fill="#CAAFA7"
-                        d="M8.375 9.375 5 6 1.625 9.375l-1-1L4 5 .625 1.625l1-1L5 4 8.375.625l1 1L6 5l3.375 3.375-1 1Z"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                <CartItem cartItem={cartItem} />
               ))}
             </div>
             <div className="mt-6 flex justify-between items-center">
@@ -84,7 +47,7 @@ export default function CartSection() {
                 {currencyFormatter.format(totalCartPrice)}
               </span>
             </div>
-            <div className="mt-6 bg-[#FCF8F6] p-4 text-sm text flex justify-center items-center">
+            <div className="mt-6 bg-rose-50 rounded-lg p-4 text-sm text flex justify-center items-center">
               <img
                 src="/assets/images/icon-carbon-neutral.svg"
                 alt="This is a carbon-neutral delivery"
@@ -96,7 +59,7 @@ export default function CartSection() {
             </div>
 
             <button
-              className="mt-6 w-full flex p-4 bg-[#C73B0F] rounded-full text-white font-semibold justify-center hover:bg-[#702108]"
+              className="mt-6 w-full flex p-4 bg-red-700 rounded-full text-white font-semibold justify-center hover:bg-red-900"
               onClick={userProgressCtx.showCheckout}
             >
               Confirm Order
