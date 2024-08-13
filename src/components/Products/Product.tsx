@@ -22,7 +22,7 @@ export default function Product({ product }: { product: ProductType }) {
         <img
           src={product.image.desktop}
           alt={product.name}
-          className="rounded-lg w-max"
+          className="rounded-lg w-full h-[212px] md:h-auto object-cover object-center"
         />
         {cartItemCount(product) ? (
           <div className="flex w-40 justify-between p-3 bg-red-700 rounded-full mt-[-1.375rem]">

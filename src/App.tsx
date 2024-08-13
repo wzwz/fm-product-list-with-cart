@@ -10,11 +10,11 @@ function App() {
     <UserProgressContextProvider>
       <CartContextProvider>
         <div className="bg-rose-50 min-h-screen leading-tight">
-          <div className="grid grid-cols-3 gap-8 max-w-[1440px] mx-auto p-28">
-            <div className="col-span-2">
+          <div className="lg:grid lg:grid-cols-3 lg:gap-8 max-w-[1440px] mx-auto lg:p-28 md:p-10 p-6">
+            <div className="lg:col-span-2">
               <ProductsSection />
             </div>
-            <div className="">
+            <div className="mt-8 lg:mt-0 w-full">
               <CartSection />
             </div>
           </div>

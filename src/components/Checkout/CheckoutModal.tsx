@@ -20,7 +20,7 @@ export default function CheckoutModal() {
 
   return (
     <Modal
-      className="rounded-lg p-10 w-[600px]"
+      className="rounded-lg py-10 px-6 md:p-10 w-[600px]"
       open={userProgressCtx.progress === "checkout"}
       onClose={handleCloseCheckout}
     >
@@ -31,7 +31,7 @@ export default function CheckoutModal() {
         />
         <h1 className="mt-6 text-2xl font-bold">Order Confirmed</h1>
         <div className="mt-2 text-rose-500">We hope you enjoy your food!</div>
-        <div className="mt-8 p-6 bg-rose-50">
+        <div className="mt-8 p-6 bg-rose-50 rounded-lg">
           {cartCtx.items.map((cartItem) => (
             <div
               key={cartItem.name}
@@ -42,8 +42,8 @@ export default function CheckoutModal() {
                 alt={cartItem.name}
                 className="w-12 rounded-[0.25rem]"
               />
-              <div className="grow mx-4 text-sm">
-                <div className="font-semibold">{cartItem.name}</div>
+              <div className="grow flex flex-col flex-nowrap truncate mx-4 text-sm">
+                <div className="font-semibold truncate">{cartItem.name}</div>
                 <div className="mt-2">
                   <span className="text-red-700 font-semibold">
                     {cartItem.quantity}x
