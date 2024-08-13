@@ -3,6 +3,8 @@ import CartContext from "../../store/CartContext";
 import { currencyFormatter } from "../../utils/formatting";
 import UserProgressContext from "../../store/UserProgressContext";
 import CartItem from "./CartItem";
+import IllustrationEmptyCartUrl from "/assets/images/illustration-empty-cart.svg";
+import IconCarbonNeutralUrl from "/assets/images/icon-carbon-neutral.svg";
 
 export default function CartSection() {
   const userProgressCtx = useContext(UserProgressContext);
@@ -26,10 +28,7 @@ export default function CartSection() {
         </h2>
         {cartCtx.items.length === 0 ? (
           <div className="flex flex-col mt-6 p-4 items-center">
-            <img
-              src="/assets/images/illustration-empty-cart.svg"
-              alt="Your cart is empty!"
-            />
+            <img src={IllustrationEmptyCartUrl} alt="Your cart is empty!" />
             <p className="mt-4 text-sm text-rose-500">
               Your added items will appear
             </p>
@@ -49,7 +48,7 @@ export default function CartSection() {
             </div>
             <div className="mt-6 bg-rose-50 rounded-lg p-4 text-sm text flex justify-center items-center">
               <img
-                src="/assets/images/icon-carbon-neutral.svg"
+                src={IconCarbonNeutralUrl}
                 alt="This is a carbon-neutral delivery"
               />
               <div className="ml-2">

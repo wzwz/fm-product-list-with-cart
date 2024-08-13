@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ProductType } from "../../common/types";
 import CartContext from "../../store/CartContext";
 import { currencyFormatter } from "../../utils/formatting";
+import IconAddToCartUrl from "/assets/images/icon-add-to-cart.svg";
 
 export default function Product({ product }: { product: ProductType }) {
   const cartCtx = useContext(CartContext);
@@ -20,7 +21,7 @@ export default function Product({ product }: { product: ProductType }) {
     <div key={product.name}>
       <div className="flex flex-col items-center">
         <img
-          src={product.image.desktop}
+          src={import.meta.env.BASE_URL + product.image.desktop}
           alt={product.name}
           className="rounded-lg w-full h-[212px] md:h-auto object-cover object-center"
         />
@@ -69,11 +70,7 @@ export default function Product({ product }: { product: ProductType }) {
             className="flex w-40 justify-center p-3 bg-white border border-rose-400 rounded-full mt-[-1.375rem] hover:text-red-700 hover:border-red-700"
             onClick={() => handleAddToCart(product)}
           >
-            <img
-              src="/assets/images/icon-add-to-cart.svg"
-              alt="Add to Cart"
-              className="mr-2"
-            />
+            <img src={IconAddToCartUrl} alt="Add to Cart" className="mr-2" />
             <span className="font-semibold">Add to Cart</span>
           </button>
         )}

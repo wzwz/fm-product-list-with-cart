@@ -3,6 +3,7 @@ import CartContext from "../../store/CartContext";
 import { currencyFormatter } from "../../utils/formatting";
 import UserProgressContext from "../../store/UserProgressContext";
 import Modal from "../ui/Modal";
+import IconOrderConfirmedUrl from "/assets/images/icon-order-confirmed.svg";
 
 export default function CheckoutModal() {
   const userProgressCtx = useContext(UserProgressContext);
@@ -25,10 +26,7 @@ export default function CheckoutModal() {
       onClose={handleCloseCheckout}
     >
       <>
-        <img
-          src="/assets/images/icon-order-confirmed.svg"
-          alt="Order Confirmed"
-        />
+        <img src={IconOrderConfirmedUrl} alt="Order Confirmed" />
         <h1 className="mt-6 text-2xl font-bold">Order Confirmed</h1>
         <div className="mt-2 text-rose-500">We hope you enjoy your food!</div>
         <div className="mt-8 p-6 bg-rose-50 rounded-lg">
@@ -38,7 +36,7 @@ export default function CheckoutModal() {
               className="flex justify-between items-center border-b border-rose-100 py-4 first:pt-0"
             >
               <img
-                src={cartItem.image.thumbnail}
+                src={import.meta.env.BASE_URL + cartItem.image.thumbnail}
                 alt={cartItem.name}
                 className="w-12 rounded-[0.25rem]"
               />
